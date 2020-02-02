@@ -104,7 +104,6 @@ $GLast = 0;
 
 ?>
 
-<!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.css"> -->
 <style type="text/css">
 	.btn-mmp
 	{
@@ -276,7 +275,6 @@ foreach ($dataTable as $k => $v) {
 
 	$(".hov").mouseleave(function()
 	{
-		// $(".hov").show();
 		var width = $(this).attr("gwidth");
 		var height = $(this).attr("gheight");
 		var font = $(this).attr("gfont");
@@ -293,11 +291,7 @@ foreach ($dataTable as $k => $v) {
 	});
 
 	$(".hov").mouseenter(function()
-	{
-		// $(".hov").stop();
-		// $(".hov").not(this).hide();
-
-		
+	{		
 		<?php echo "var width=" . $GWidth . ";"; ?>
 		<?php echo "var height=" . $GHeight*2 . ";"; ?>
 		height = Math.max($(this).attr("gheight"),height);

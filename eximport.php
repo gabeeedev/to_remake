@@ -49,8 +49,6 @@ if (isset($_POST['action'])) {
 			$data = httpPost("http://to.ttk.elte.hu/test.php",$postData);
 			$dataTable = getDataTable($data);
 
-			// echo $dataTable[];
-
 			foreach ($dataTable as $k => $v) {
 				if($dataRow['course'] == $v['course'])
 				{

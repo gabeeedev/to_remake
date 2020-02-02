@@ -45,10 +45,6 @@ else
 	$date = date_create($year . "-02-" . $day);
 }
 
-// print_r($date);
-
-// echo date_format($date,"Y/m/d");
-
 header('Content-Description: File Transfer');
 header('Content-Type: application/octet-stream');
 header('Content-Disposition: attachment; filename="export.csv"');

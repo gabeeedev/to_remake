@@ -28,24 +28,15 @@ function getDataTable($data)
 
 	foreach ($arr as $key => $value) {
 		$params = split("@", $value);
-		// echo "$value";
-		// echo "<br>";
 		if(count($params) < 10) { continue; }
 		$subject = $params[0];
 		$code = $params[1];
 		$day = split(" ",$params[2])[0];
 		$time = substr($params[2],strlen($day)+1);
 		$room = $params[3];
-		// echo "<br>";
-		// echo $params[2];
-		// echo "<br>";
-		// echo $params[3];
-		// echo "<br>";
 		$teacher = $params[count($params)-2];
-		// echo "<br>";
 		$extra = $params[count($params)-8];
 		$course = $params[count($params)-6];
-		// echo "<br>";
 
 		$row = array("subject" => $subject,"day" => $day,"time" => $time,"teacher" => $teacher, "course" => $course, "code" => $code, "room" => $room, "extra" => $extra);
 		array_push($dataTable, $row);
@@ -63,8 +54,7 @@ function getSemester()
 	if ($month > 6) {
 		$tanrend = $year . "-" . ($year+1) . "-1";
 	}
-	else
-	{
+	else {
 		$tanrend = ($year-1) . "-" . $year . "-2";
 	}
 

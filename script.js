@@ -81,3 +81,52 @@ function listByTeacher(melyik,felev,korlat,keres,nar,width)
 		$("#tar").html(data);
 	});
 }
+
+$("#lister").submit(function(e){
+	e.preventDefault();
+	listSubs();
+});
+
+$(document).ready(function()
+{
+	listTimeTable();
+	$("#subject").focus();
+});
+
+$("#tt_export").click(function()
+{
+	$.post("eximport.php",{action:"export"},function(data)
+	{
+		$("#eximdata").val(data);
+	});
+});
+
+$("#tt_import").click(function()
+{
+	var data = $("#eximdata").val();
+	$.post("eximport.php",{action:"import",data:data},function(data)
+	{
+		$("#eximdata").val(data);
+		var width = $("#timetable").width();
+		$.post("save.php", {width:width},function(data)
+		{
+			$("#timetable").html(data);
+		});
+	});
+});
+
+$("#gcexport").submit(function(e)
+{
+	e.preventDefault();
+	window.open("exgoogle.php?weeks=" + parseInt($("#weeks").val()));
+});
+
+$("#cc_form").submit(function(e)
+{
+	e.preventDefault();
+	addCustomCourse();
+});
+
+setInterval(() => {
+	$.get("session_reset.php");
+}, 60000);

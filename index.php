@@ -224,34 +224,7 @@
 
 	<div id="timetable" style="margin: 32px;">
 		
-	</div> 
-
-<!-- 	<div class="panel-group" style="margin:32px;">
-		<form method="POST" action="csvimport.php" id="csv_import" enctype="multipart/form-data">	
-			<div class="panel panel-primary">
-				<div class="panel-heading">
-					<h4 class="panel-title">
-					<a data-toggle="collapse" href="#csvimport">CSV Import</a>
-					</h4>
-				</div>
-				<div id="csvimport" class="panel-collapse collapse" style="max-height: 512px;overflow-y: scroll;">
-					<div class="panel-body" style="position: relative;">
-						<p>
-							A neptunban lévő (Tárgyak/Felvett kurzusok) kurzusokat exportáld majd excelben/sheetsben mentsd el csv-ként.<br>
-							A kapott csv fájlt töltsd fel.<br>
-						</p>
-						<div class="form-group">
-						  	<label class="control-label">CSV Fájl</label>
-							<input id="input-1a" type="file" class="file" name="file" data-show-preview="false">
-						</div>
-						<div class="btn-group">
-							<button type="submit" class="btn btn-primary">Import</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</form>
-	</div> -->
+	</div>
 
 	<div class="panel-group" style="margin:32px;">
 		<div class="panel panel-primary">
@@ -377,57 +350,5 @@
 </body>
 
 <script type="text/javascript" src="script.js"></script>
-<script type="text/javascript">
-
-	$("#lister").submit(function(e){
-		e.preventDefault();
-		listSubs();
-    });
-
-	$(document).ready(function()
-	{
-		listTimeTable();
-	    $("#subject").focus();
-	});
-    
-    $("#tt_export").click(function()
-    {
-    	$.post("eximport.php",{action:"export"},function(data)
-    	{
-    		$("#eximdata").val(data);
-    	});
-    });
-
-    $("#tt_import").click(function()
-    {
-    	var data = $("#eximdata").val();
-    	$.post("eximport.php",{action:"import",data:data},function(data)
-    	{
-    		$("#eximdata").val(data);
-    		var width = $("#timetable").width();
-			$.post("save.php", {width:width},function(data)
-		    {
-		    	$("#timetable").html(data);
-		    });
-    	});
-    });
-
-    $("#gcexport").submit(function(e)
-    {
-    	e.preventDefault();
-    	window.open("exgoogle.php?weeks=" + parseInt($("#weeks").val()));
-    });
-
-    $("#cc_form").submit(function(e)
-    {
-    	e.preventDefault();
-    	addCustomCourse();
-	});
-	
-	setInterval(() => {
-		$.get("session_reset.php");
-	}, 60000);
-
-</script>
 
 </html>

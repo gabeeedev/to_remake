@@ -89,7 +89,6 @@ if (!isset($_SESSION) || count($_SESSION) < 1) {
 
 ?>
 
-<!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.css"> -->
 <style type="text/css">
 	.btn-mmp
 	{
@@ -255,7 +254,6 @@ echo "</div>";
 <script type="text/javascript">
 	$(".hov").mouseleave(function()
 	{
-		// $(".hov").show();
 		var width = $(this).attr("gwidth");
 		var height = $(this).attr("gheight");
 		var font = $(this).attr("gfont");
@@ -271,12 +269,7 @@ echo "</div>";
 		},100);
 	});
 
-	$(".hov").mouseenter(function()
-	{
-		// $(".hov").stop();
-		// $(".hov").not(this).hide();
-
-		
+	$(".hov").mouseenter(function() {
 		<?php echo "var width=" . $GWidth . ";"; ?>
 		<?php echo "var height=" . $GHeight*2 . ";"; ?>
 		height = Math.max($(this).attr("gheight"),height);
