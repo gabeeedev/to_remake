@@ -1,0 +1,95 @@
+html
+{
+    scrollbar-width: thin;
+    scrollbar-color: #333 #666;
+}
+
+body {
+    background-color:rgb(40, 40, 40);
+    color:#EEE;
+}
+
+.panel-default, .panel-default .panel-heading, .panel-default .panel-body{
+    background-color: #222 !important;
+    border:solid 1px #111 !important;
+    color:#EEE;
+}
+
+.panel-body, .panel{
+    background-color: #222 !important;
+}
+
+.danger td{
+    background-color:#943f3f !important;
+}
+
+.panel-info .panel-heading {
+    background-color: #4d9cc3;
+    color:#EEE;
+}
+
+.panel-info {
+    border-color:#4d9cc3 !important;
+}
+
+.btn-info {
+    background-color: #4d9cc3;
+    color:#EEE;
+    border-color:#4d9cc3 !important;
+}
+
+.panel-danger .panel-heading {
+    background-color:#943f3f !important;    
+    color:#EEE !important;
+}
+.panel-danger, .panel-danger .panel-heading {
+    border-color:#943f3f !important;
+}
+
+.panel-success .panel-heading {
+    background-color:#33682f !important;
+    color:#EEE !important;
+}
+
+
+.panel-success, .panel-success .panel-heading {
+    border-color:#33682f !important;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color:#222
+}
+
+input, select{
+    background:none !important;
+    color: #EEE !important;
+    border: 0px !important;
+    border-bottom:2px solid #DDD !important;
+    border-radius: 0px !important;
+}
+
+input:focus, select:focus{
+    border-bottom:2px solid #4d9cc3 !important;
+    box-shadow: none !important;
+}
+
+option {
+    background-color: #222 !important;
+}
+
+[disabled] {
+    color:#AAA !important;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background:#333; 
+}
+
+::-webkit-scrollbar-thumb {
+background:#666; 
+border-radius: 10px;
+}
