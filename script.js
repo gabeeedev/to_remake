@@ -30,7 +30,7 @@ function listSubs()
 {
 	var felev=$("#felev").val();
 	var korlat=$("#darab").val();
-	var keres=$("#subject").val();
+	var keres=$("#subject").val().trim();
 	var melyik=$("#search").val();
 	var nar=$("#nar").val();
 	var width=$("#tar").width();
