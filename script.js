@@ -1,3 +1,10 @@
+var GWidth;
+var GHeight = 75;
+
+function handler(events, target, func) {
+    $(document).on(events,target,func);
+}
+
 function remLesson(subject,code,course,teacher,room,day,time) {
 	var width = $("#timetable").width();
 	$.post("save.php", {action:'rem',subject:subject,code:code,course:course,teacher:teacher,room:room,day:day,time:time,width:width} , function(data)
@@ -6,7 +13,6 @@ function remLesson(subject,code,course,teacher,room,day,time) {
 		listSubs();
 	});
 }
-
 
 function saveLesson(subject,code,course,teacher,room,day,time,vis) {
 	var width = $("#timetable").width();
@@ -81,16 +87,16 @@ function listByTeacher(melyik,felev,korlat,keres,nar,width)
 		$("#tar").html(data);
 	});
 }
-
-$("#lister").submit(function(e){
-	e.preventDefault();
-	listSubs();
-});
-
 $(document).ready(function()
 {
 	listTimeTable();
 	$("#subject").focus();
+	GWidth = ($("#timetable").width()-64)/5;
+});
+
+handler("submit","#lister",function (e){
+	e.preventDefault();
+	listSubs();
 });
 
 $("#tt_export").click(function()
@@ -130,3 +136,34 @@ $("#cc_form").submit(function(e)
 setInterval(() => {
 	$.get("session_reset.php");
 }, 60000);
+
+handler("mouseleave",".hov",function() {
+	var width = $(this).attr("gwidth");
+	var height = $(this).attr("gheight");
+	var font = $(this).attr("gfont");
+	var xpos = $(this).attr("gxpos");
+	
+	$(this).css("z-index",0);
+	$(this).clearQueue();
+	$(this).animate({
+		width: width,
+		height: height,
+		fontSize:font + "px",
+		left:xpos + "px",
+	},100);
+});
+
+handler("mouseenter",".hov",function() {	
+	var width = GWidth;
+	var height = GHeight*2;
+	height = Math.max($(this).attr("gheight"),height);
+
+	$(this).css("z-index",1);
+	$(this).clearQueue();
+	$(this).animate({
+		width: width,
+		height: height,
+		fontSize:"14px",
+		left:$(this).attr("gxfix") + "px",
+	},100);
+});
