@@ -2,8 +2,8 @@
 session_start();
 function getTime($s)
 {
-	$hour = split(":",$s)[0];
-	$min = split(":",$s)[1];
+	$hour = explode(":",$s)[0];
+	$min = explode(":",$s)[1];
 	return (floatval($hour) + (floatval($min)/60));			
 }
 
@@ -11,8 +11,8 @@ function getFromTo($time,$day)
 {
 	global $helper;
 
-	$from = split("-",$time)[0];
-	$to = split("-",$time)[1];
+	$from = explode("-",$time)[0];
+	$to = explode("-",$time)[1];
 	$from = getTime($from) + ($helper[$day] * 100);
 	$to = getTime($to) + ($helper[$day] * 100);
 	return array("from" => $from,"to" => $to);
@@ -129,11 +129,11 @@ if (!isset($_SESSION) || count($_SESSION) < 1) {
 								if(!$v['vis']) { $danger = "class='danger'"; }
 
 								$time = $v['time'];
-								$from = split("-", $time)[0];
-								$hour = intval(split(":",$from)[0]);
+								$from = explode("-", $time)[0];
+								$hour = intval(explode(":",$from)[0]);
 								$GFirst = $GFirst > $hour ? $hour : $GFirst;
-								$to = split("-", $time)[1];
-								$hour = intval(split(":",$to)[0]);
+								$to = explode("-", $time)[1];
+								$hour = intval(explode(":",$to)[0]);
 								$GLast = $GLast < $hour ? $hour : $GLast;
 
 								$mmpTeacher = $v['teacher'];
@@ -209,13 +209,13 @@ foreach ($_SESSION as $k => $v) {
 		continue;
 	}
 
-	$from = split("-", $time)[0];
-	$hour = split(":",$from)[0];
-	$min = split(":",$from)[1];
+	$from = explode("-", $time)[0];
+	$hour = explode(":",$from)[0];
+	$min = explode(":",$from)[1];
 	$fromOffset = floatval($hour) - 8 + (floatval($min)/60);
-	$to = split("-", $time)[1];
-	$hour = split(":",$to)[0];
-	$min = split(":",$to)[1];
+	$to = explode("-", $time)[1];
+	$hour = explode(":",$to)[0];
+	$min = explode(":",$to)[1];
 	$toOffset = floatval($hour) - 8 + (floatval($min)/60);
 
 	$block = getBlock($v);

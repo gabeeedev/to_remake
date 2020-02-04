@@ -21,17 +21,17 @@ function getDataTable($data)
 	$data = str_replace("</tr>", "<br>", $data);
 	$data = str_replace("</td>", "@", $data);
 
-	$arr = split("<br>",$data);
+	$arr = explode("<br>",$data);
 	$arr = array_splice($arr, 1);
 
 	$dataTable = array();
 
 	foreach ($arr as $key => $value) {
-		$params = split("@", $value);
+		$params = explode("@", $value);
 		if(count($params) < 10) { continue; }
 		$subject = $params[0];
 		$code = $params[1];
-		$day = split(" ",$params[2])[0];
+		$day = explode(" ",$params[2])[0];
 		$time = substr($params[2],strlen($day)+1);
 		$room = $params[3];
 		$teacher = $params[count($params)-2];

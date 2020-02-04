@@ -69,13 +69,13 @@ foreach ($_SESSION as $rk => $row)
 	$curDate->modify("+" . $offset . " day");
 	$time = $row['time'];
 
-	$from = split("-", $time)[0];
-	$hour = intval(split(":",$from)[0]);
-	$min = split(":",$from)[1];
+	$from = explode("-", $time)[0];
+	$hour = intval(explode(":",$from)[0]);
+	$min = explode(":",$from)[1];
 	$from = ($hour >= 12) ? ($hour % 12) . ":" . $min . " PM" : $hour . ":" . $min . " AM";
-	$to = split("-", $time)[1];
-	$hour = intval(split(":",$to)[0]);
-	$min = split(":",$to)[1];
+	$to = explode("-", $time)[1];
+	$hour = intval(explode(":",$to)[0]);
+	$min = explode(":",$to)[1];
 	$to = ($hour >= 12) ? ($hour % 12) . ":" . $min . " PM" : $hour . ":" . $min . " AM";
 
 	$room = $row['room'];

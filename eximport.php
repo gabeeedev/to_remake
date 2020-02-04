@@ -27,14 +27,14 @@ if (isset($_POST['action'])) {
 		$postData = array('felev' => $tanrend, 'limit' => 1000, 'melyik' => 'kodalapjan');
 
 		$s = $_POST['data'];
-		$arr = split("<lb>",$s);
+		$arr = explode("<lb>",$s);
 		foreach ($arr as $rk => $row) {
 
 			$dataRow = array();
-			$temp = split("<kb>",$row);
+			$temp = explode("<kb>",$row);
 			foreach ($temp as $k => $v) {
-				$key = split("=", $v)[0];
-				$val = split("=", $v)[1];
+				$key = explode("=", $v)[0];
+				$val = explode("=", $v)[1];
 				$dataRow[$key] = $val;
 			}
 
